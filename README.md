@@ -1,7 +1,9 @@
-## Live Demo
-**This App uses a Heroku free plan, so I am afraid that it takes time to load the pages.**
-Check out [FRONTEND LIVE DEMO](https://hungercaptain-frontend.herokuapp.com/) here!!
-Check out [API LIVE DEMO](https://hungercaptain-backend.herokuapp.com/) here!!
+## Hunger-Captian
+```
+Thsi project is created by using React and Redux for Frontend and Django for backend
+```
+Check out [FRONTEND LIVE DEMO](https://frontend-hungercaptain.herokuapp.com/) here!!
+Check out [API LIVE DEMO](https://backend-hungercaptain.herokuapp.com/) here!!
 ## Tech used
 ```
 * Frontend : React & Redux
@@ -10,7 +12,7 @@ Check out [API LIVE DEMO](https://hungercaptain-backend.herokuapp.com/) here!!
 ## How to Install
 1. Git Clone
 ```
-git clone git@github.com: https://github.com/Hayuo2/Hunger-s-Captain.git
+git clone https://github.com/JosephAmbersley/hunger-captian-project.git
 ```
 2. Backend setting
 ```

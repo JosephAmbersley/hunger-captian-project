@@ -1,6 +1,6 @@
 ## Hunger-Captian
 ```
-Thsi project is created by using React and Redux for Frontend and Django for backend
+This project is created by using React and Redux for Frontend and Django for backend
 ```
 Check out [FRONTEND LIVE DEMO](https://frontend-hungercaptain.herokuapp.com/) here!!
 Check out [API LIVE DEMO](https://backend-hungercaptain.herokuapp.com/) here!!

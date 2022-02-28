@@ -32,6 +32,24 @@ export default function Cart() {
     <>
     <Header/>
     <Footer/>
+       <section class="content">
+				<ul class="items">
+					{
+						(carts,
+						items &&
+							carts.map((cart) => (
+								<li>
+									<CartItem
+										cart={cart.item}
+										cartId={cart.id}
+										key={cart.item.id}
+										quantity={cart.quantity}
+									/>
+								</li>
+							)))
+					}
+				</ul>
+			</section>
     </>
   )
 }

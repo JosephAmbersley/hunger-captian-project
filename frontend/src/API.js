@@ -1,4 +1,5 @@
 import axios from "axios";
+const LOGIN_USER_KEY = "LOGIN_USER_KEY";
 
 var baseURL;
 // if (process.env.REACT_APP_ENVIRONMENT && process.env.REACT_APP_ENVIRONMENT === "PRODUCTION") {
@@ -14,6 +15,22 @@ const api = axios.create({
     "Content-Type": "application/json",
   },
 });
+
+api.interceptors.request.use(
+  (config) => {
+    if (localStorage.getItem(LOGIN_USER_KEY)) {
+      config.headers.common["Authorization"] = JSON.parse(
+        localStorage.getItem(LOGIN_USER_KEY)
+      ).token;
+    }
+
+    return config;
+  },
+  (err) => {
+    console.error(err);
+  }
+);
+
 
 export default class API {
   ////////////////////////////////
@@ -150,7 +167,7 @@ export default class API {
 
 getCarts = async () => {
   const carts = await api
-    .get("carts/")
+    .get("cart/")
     .then((response) => {
       return response.data;
     })
@@ -162,7 +179,7 @@ getCarts = async () => {
 
 addCarts = async (item_id) => {
   const savedCart = await api
-    .post("/carts/add/", {
+    .post("/cart/add/", {
       item: item_id,
       quantity: 1,
     })
@@ -177,7 +194,7 @@ addCarts = async (item_id) => {
 
 updateCarts = async (cart_id, quantity) => {
   const savedCart = await api
-    .put("/carts/update/" + cart_id + "/", {
+    .put("/cart/update/" + cart_id + "/", {
       quantity: quantity,
     })
     .then((response) => {
@@ -191,7 +208,7 @@ updateCarts = async (cart_id, quantity) => {
 
 deleteCart = async (cart_id) => {
   const response = await api
-    .delete("/carts/delete/" + cart_id + "/")
+    .delete("/cart/delete/" + cart_id + "/")
     .then((response) => {
       return response.data;
     })

@@ -19,6 +19,11 @@ export default function CartItem({ cart }) {
   const clickMinusCart = () => {
     dispatch(decreaseCart(cart.id));
   };
+  useEffect(() => {
+    console.log(cart.image);
+    console.log(cart);
+    console.log(carts);
+}, []);
 
   return (
       <>

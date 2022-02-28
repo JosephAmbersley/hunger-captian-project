@@ -11,17 +11,17 @@ class CartList(generics.ListAPIView):
     filter_backends=[DjangoFilterBackend]
     filterset_fields =['user_id']
     
-    def get(self, request, *args, **kwargs):
-        self.queryset=Cart.objects.order_by('-created_at').filter(user=request.login_user)
-        return self.list(request, *args, **kwargs)
+    # def get(self, request, *args, **kwargs):
+    #     self.queryset=Cart.objects.order_by('-created_at').filter(user=request.login_user)
+    #     return self.list(request, *args, **kwargs)
     
 class CartAdd(generics.CreateAPIView): 
     queryset = Cart.objects.all()
     serializer_class = CartAddSerializer
     
-    def post(self, request, *args, **kwargs): 
-        request.data['user'] = request.login_user.id
-        return self.create(request, *args, **kwargs)
+    # def post(self, request, *args, **kwargs): 
+    #     request.data['user'] = request.login_user.id
+    #     return self.create(request, *args, **kwargs)
 
     
 class CartDelete(generics.DestroyAPIView): 

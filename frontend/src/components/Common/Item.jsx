@@ -8,7 +8,7 @@ import {
   increaseCart,
   decreaseCart,
 } from "../../reducks/carts/operations";
-import { getCarts, getSubtotal } from "../../reducks/carts/selectors";
+import { getCarts } from "../../reducks/carts/selectors";
 import {push} from "connected-react-router"
 
 const Item = ({
@@ -19,7 +19,8 @@ const Item = ({
   setSelectedItemId,
 }) => {
   const selector = useSelector((state) => state);
-  const subtotal = getSubtotal(selector);
+  const key = localStorage.getItem("LOGIN_USER_KEY");
+  
   const [particularCart, setParticularCart] = useState(null);
   useEffect(() => {
     if (carts != undefined && carts.length > 0) {
@@ -34,7 +35,7 @@ const Item = ({
         setParticularCart(null);
       }
     }
-  }, [subtotal]);
+  }, []);
   const carts = getCarts(selector);
   const dispatch = useDispatch();
   const clickAddCart = () => {
@@ -58,7 +59,9 @@ const Item = ({
     <>
       <div class="item">
         <div class="menu">
+          <div className="item-image" >
           <img class="img1" src={item.image} alt="image" />
+          </div>
           <div class="likes">
             <img class="hearticon" src={ImgIconHeart} alt="" />
             <p class="likescount">{item.total_like_count}</p>

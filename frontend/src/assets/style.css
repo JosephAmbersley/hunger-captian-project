@@ -45,6 +45,7 @@
 .content img.line {
   margin: 10px 0px;
 }
+
 .hot-links {
   display: flex;
   justify-content: center;
@@ -77,6 +78,7 @@
 }
 .item-container .items .item img.img1 {
   width: 100%;
+  height: 215px;
 }
 .item .likes {
   display: flex;
